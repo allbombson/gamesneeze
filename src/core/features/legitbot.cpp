@@ -51,6 +51,9 @@ void Features::LegitBot::createMove(CUserCmd* cmd) {
 
                         float closestDelta = FLT_MAX;
                         QAngle angleToClosestPlayer;
+                        angleToClosestPlayer.x = 0;
+                        angleToClosestPlayer.y = 0;
+                        angleToClosestPlayer.z = 0;
 
                         // Enumerate over players and get angle to the closest player to crosshair
                         for (int i = 1; i < Interfaces::globals->maxClients; i++) {

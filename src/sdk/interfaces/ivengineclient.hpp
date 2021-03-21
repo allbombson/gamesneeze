@@ -1,4 +1,5 @@
 #pragma once
+#pragma GCC diagnostic ignored "-Wpedantic"
 #include <cstdint>
 #include "../../utils/utils.hpp"
 #include "../classes/vector.h"

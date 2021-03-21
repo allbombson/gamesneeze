@@ -32,8 +32,9 @@ void Features::AntiAim::createMove(CUserCmd* cmd) {
                                 
                                 cmd->viewangles.x = CONFIGINT("Rage>AntiAim>Pitch");
 
-                                int real;
-                                int fake;
+                                // Not really needed but initialize to 0 just in case
+                                int real = 0;
+                                int fake = 0;
 
                                 switch (CONFIGINT("Rage>AntiAim>Type")) {
                                     case 1: { // Static 

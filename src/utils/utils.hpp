@@ -14,7 +14,7 @@ namespace Log {
 
 inline uintptr_t getAbsoluteAddress(uintptr_t ptr, int offset, int size) {
 	return ptr + *reinterpret_cast<int32_t*>(ptr + offset) + size;
-};
+}
 
 inline void**& getVTable(void* c, size_t offset = 0) {
 	return *reinterpret_cast<void***>((size_t)c + offset);

@@ -12,6 +12,11 @@ void Features::RageBot::createMove(CUserCmd* cmd) {
 
                         float closestDelta = FLT_MAX;
                         QAngle angleToClosestPlayer;
+                        // This should help incase for whatever reason we cant get the angles to the closest player.
+                        // In the case of that we wont end up changing our view angles like we possibly would otherwise.
+                        angleToClosestPlayer.x = 0;
+                        angleToClosestPlayer.y = 0;
+                        angleToClosestPlayer.z = 0;
 
                         // Enumerate over players and get angle to the closest player to crosshair
                         for (int i = 1; i < Interfaces::globals->maxClients; i++) {

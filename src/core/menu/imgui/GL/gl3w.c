@@ -1,4 +1,8 @@
 #include "gl3w.h"
+// This is here so we dont get 10 billion warnings. We will just ignore it as its a libary and subject to change.
+// The warning in question is about data pointers to function pointers. They actually disable it for MSVC below so
+// this is infact the "correct" "fix".
+#pragma GCC diagnostic ignored "-Wpedantic"
 
 #ifdef _MSC_VER
 #pragma warning (disable: 4055) // warning C4055: 'type cast' : from data pointer 'void *' to function pointer
