@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 gdb="$(dirname "$0")/gdb" # For using a gdb build such as the cathook one (The one included)
 libname="libgamemode.so" # Pretend to be gamemode, change this to another lib that may be in /maps
@@ -9,7 +9,7 @@ csgo_pid=$(pidof csgo_linux64)
 export CC="clang"
 export CXX="clang++"
 
-if [[ $EUID -eq 0 ]]; then
+if [ $(id -u) -eq 0 ]; then
     echo "You cannot run this as root." 
     exit 1
 fi
@@ -17,7 +17,7 @@ fi
 rm -rf /tmp/dumps
 mkdir -p --mode=000 /tmp/dumps 
 
-function unload {
+unload() {
     echo "Unloading cheat..."
     echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
     if grep -q "$libname" "/proc/$csgo_pid/maps"; then
@@ -33,7 +33,7 @@ function unload {
     echo "Unloaded!"
 }
 
-function load {
+load() {
     echo "Loading cheat..."
     echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
     cp build/libgamesneeze.so build/$libname
@@ -47,7 +47,7 @@ function load {
     echo "Successfully loaded!"
 }
 
-function load_debug {
+load_debug() {
     echo "Loading cheat..."
     echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
     cp build/libgamesneeze.so build/$libname
@@ -62,7 +62,7 @@ function load_debug {
     echo "Successfully loaded!"
 }
 
-function build {
+build() {
     echo "Building cheat..."
     mkdir -p build
     cd build
@@ -71,7 +71,7 @@ function build {
     cd ..
 }
 
-function build_debug {
+build_debug() {
     echo "Building cheat..."
     mkdir -p build
     cd build
@@ -80,11 +80,11 @@ function build_debug {
     cd ..
 }
 
-function pull {
+pull() {
     git pull
 }
 
-while [[ $# -gt 0 ]]
+while [ $# -gt 0 ]
 do
 keys="$1"
 case $keys in
