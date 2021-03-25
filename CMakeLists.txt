@@ -7,8 +7,8 @@ set(CMAKE_C_FLAGS_DEBUG "-W -Wall -Wextra -Wpedantic -Og -march=native -mtune=na
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -std=c++2a")
 
 # You can swap these lines around if using gcc. Top is clang bottom is gcc
-set(CMAKE_C_FLAGS_RELEASE "-W -Wall -Wextra -Wpedantic -O3 -march=native -mtune=native -fvisibility=hidden -flto -Wl,--strip-debug")
-#set(CMAKE_C_FLAGS_RELEASE "-W -Wall -Wextra -Wpedantic -O3 -march=core2 -mtune=native -s -fvisibility=hidden -flto -fwhole-program")
+set(CMAKE_C_FLAGS_RELEASE "-W -Wall -Wextra -Wpedantic -O3 -march=native -mtune=native -fvisibility=hidden -flto -Wl,--strip-all -Wno-unused-command-line-argument")
+#set(CMAKE_C_FLAGS_RELEASE "-W -Wall -Wextra -Wpedantic -O3 -march=core2 -mtune=native -s -fvisibility=hidden -flto -fwhole-program -Wl,--strip-all -Wno-unused-command-line-argument")
 
 # You can swap these lines around if using gcc. Top is clang bottom is gcc
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -fno-rtti -std=c++2a")
