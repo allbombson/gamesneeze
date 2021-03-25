@@ -78,6 +78,9 @@ namespace Features {
     namespace AutoHop {
         void createMove(CUserCmd* cmd);
     }
+    namespace AutoStrafe {
+        void createMove(CUserCmd* cmd);
+    }
     namespace UseSpam {
         void createMove(CUserCmd* cmd);
     }

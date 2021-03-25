@@ -36,6 +36,7 @@ bool Hooks::CreateMove::hook(void* thisptr, float flInputSampleTime, CUserCmd* c
                 cmd->buttons |= (1 << 5);
             }
         endMovementFix(cmd);
+        Features::AutoStrafe::createMove(cmd);
 	    Features::SlowWalk::createMove(cmd);
         cmd->forwardmove = std::clamp(cmd->forwardmove, -450.0f, 450.0f);
         cmd->sidemove = std::clamp(cmd->sidemove, -450.0f, 450.0f);

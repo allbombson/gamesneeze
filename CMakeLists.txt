@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.11.0)
 project(gamesneeze)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_FLAGS_DEBUG "-W -Wall -Wextra -Wpedantic -Og -march=native -mtune=native -fvisibility=hidden -flto -ggdb -DDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -std=c++2a")
